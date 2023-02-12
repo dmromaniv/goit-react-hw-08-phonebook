@@ -1,0 +1,12 @@
+.menuWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+
+  padding: 10px 30px;
+}
+
+.email {
+  color: rgb(93, 94, 95);
+  font-size: 12px;
+}

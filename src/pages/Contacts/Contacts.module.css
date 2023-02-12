@@ -1,0 +1,12 @@
+.contentWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.subtitle {
+  color: rgb(93, 94, 95);
+}
+
+.contactsWrapper {
+  width: 400px;
+}

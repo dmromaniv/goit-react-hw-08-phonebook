@@ -1,16 +1,17 @@
 import { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectContacts } from 'redux/selectors';
-import { addContact } from '../../redux/operations';
+import { Button, TextField } from '@mui/material';
 
+import { selectContacts } from 'redux/selectors';
+import { addContact } from '../../redux/contacts/contactsOperations';
 import s from './ContactForm.module.css';
 
 export const ContactForm = memo(() => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const [userInfo, setUserInfo] = useState({ name: '', phone: '' });
+  const [userInfo, setUserInfo] = useState({ name: '', number: '' });
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -18,7 +19,7 @@ export const ContactForm = memo(() => {
   };
 
   const resetForm = () => {
-    setUserInfo({ name: '', phone: '' });
+    setUserInfo({ name: '', number: '' });
   };
 
   const handleContactFormSubmit = event => {
@@ -38,36 +39,28 @@ export const ContactForm = memo(() => {
 
   return (
     <form className={s.form} onSubmit={handleContactFormSubmit}>
-      <label className={s.label}>
-        Name
-        <input
-          className={s.input}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          value={userInfo.name}
-          onChange={handleChange}
-        />
-      </label>
-      <label className={s.label}>
-        Number
-        <input
-          className={s.input}
-          type="tel"
-          name="phone"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          value={userInfo.phone}
-          onChange={handleChange}
-        />
-      </label>
+      <TextField
+        id="standard-basic"
+        label="Name"
+        variant="standard"
+        value={userInfo.name}
+        onChange={handleChange}
+        name="name"
+        required
+      />
+      <TextField
+        id="standard-basic"
+        label="Number"
+        variant="standard"
+        value={userInfo.number}
+        onChange={handleChange}
+        name="number"
+        required
+      />
 
-      <button className={s.button} type="submit">
+      <Button variant="outlined" type="submit">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 });

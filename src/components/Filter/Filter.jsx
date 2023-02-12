@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { TextField } from '@mui/material';
 
 import { changeFilter } from 'redux/filter/filterSlice';
 
@@ -10,9 +11,13 @@ export const Filter = () => {
   };
 
   return (
-    <>
-      <p>Find contacts by name</p>
-      <input type="text" name="filter" onChange={handleOnChange}></input>
-    </>
+    <TextField
+      id="standard-basic"
+      label="Enter contact name"
+      variant="standard"
+      required
+      onChange={handleOnChange}
+      name="filter"
+    />
   );
 };

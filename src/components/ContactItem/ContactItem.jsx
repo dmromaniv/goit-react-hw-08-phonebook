@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { deleteContact } from '../../redux/operations.js';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import { deleteContact } from '../../redux/contacts/contactsOperations.js';
 import s from './ContactItem.module.css';
 
 export const ContactItem = ({ id, name, number }) => {
@@ -13,10 +16,15 @@ export const ContactItem = ({ id, name, number }) => {
 
   return (
     <li className={s.listItem}>
-      {name} - {number}
-      <button className={s.button} onClick={onDeleteBtnClick}>
-        Delete
-      </button>
+      <span className={s.textName}>{name}</span> →
+      <span className={s.textPhone}>{number}</span>
+      <IconButton
+        aria-label="delete"
+        onClick={onDeleteBtnClick}
+        color="primary"
+      >
+        <DeleteIcon />
+      </IconButton>
     </li>
   );
 };
