@@ -2,7 +2,7 @@
   "name": "react-homework",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dmromaniv.github.io/goit-react-hw-08-phonebook/login",
+  "homepage": "https://dmromaniv.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
