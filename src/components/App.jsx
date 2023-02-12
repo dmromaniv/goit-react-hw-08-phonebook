@@ -20,7 +20,7 @@ export const App = () => {
       dispatch(getUser());
     }
   }, [userToken, name, email, dispatch]);
-
+  <Navigate to="/login" />;
   return (
     <>
       <Routes>
